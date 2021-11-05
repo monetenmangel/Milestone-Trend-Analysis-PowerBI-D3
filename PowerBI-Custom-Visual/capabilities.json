@@ -1,0 +1,60 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Milestone",
+            "name": "measure0",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Report Date",
+            "name": "measure1",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Vor. Ende",
+            "name": "measure2",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Index",
+            "name": "index",
+            "kind": "Grouping"
+        }
+    ],
+    "objects": {},
+    "dataViewMappings": [
+        {
+            "categorical": {
+                "categories": {
+                    "for": {
+                        "in": "index"
+                    },
+                    "dataReductionAlgorithm": {
+                        "top": {
+                            "count": 2000
+                        }
+                    }
+                },
+                "values": {
+                    "select": [
+                        {
+                            "bind": {
+                                "to": "measure0"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "measure1"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "measure2"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
