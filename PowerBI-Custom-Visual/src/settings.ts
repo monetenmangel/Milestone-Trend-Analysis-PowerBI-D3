@@ -28,21 +28,27 @@
 
 import { dataViewObjectsParser } from "powerbi-visuals-utils-dataviewutils";
 import DataViewObjectsParser = dataViewObjectsParser.DataViewObjectsParser;
+import { DateTypes } from "./visual";
 
 export class VisualSettings extends DataViewObjectsParser {
       public dataPoint: dataPointSettings = new dataPointSettings();
+      public dateType: DateTypeSettings = new DateTypeSettings();
       }
 
     export class dataPointSettings {
-     // Default color
-      public defaultColor: string = "";
-     // Show all
-      public showAllDataPoints: boolean = true;
-     // Fill
-      public fill: string = "";
-     // Color saturation
-      public fillRule: string = "";
-     // Text Size
-      public fontSize: number = 12;
+     public dataColor: boolean = false
+     public radius: number = 10
+     public thickness: number = 1.5
+     public projektStart: string = "01.01.2021"
+     public projektEnd: string = "31.12.2021"
+     public tooltipReportDate: boolean = true
+     public labelTooltip1: string = "Vor. Ende"
+     public tooltipVorEnde: boolean = true
+     public labelTooltip2: string = "Berichtswert"
+     public tooltipFree: boolean = true
+     public labelTooltip3: string = "Frei zu vergeben"
      }
+     export class DateTypeSettings {
+      type: DateTypes = DateTypes.Month;
+      }
 

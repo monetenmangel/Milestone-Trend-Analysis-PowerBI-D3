@@ -2,56 +2,158 @@
     "dataRoles": [
         {
             "displayName": "Milestone",
-            "name": "measure0",
-            "kind": "Measure"
+            "name": "milestone",
+            "kind": "GroupingOrMeasure"
         },
         {
             "displayName": "Report Date",
-            "name": "measure1",
-            "kind": "Measure"
+            "name": "reportDate",
+            "kind": "GroupingOrMeasure"
         },
         {
             "displayName": "Vor. Ende",
-            "name": "measure2",
-            "kind": "Measure"
+            "name": "vorEnde",
+            "kind": "GroupingOrMeasure"
         },
         {
-            "displayName": "Index",
-            "name": "index",
-            "kind": "Grouping"
-        }
+            "displayName": "Tooltip",
+            "name": "tooltip",
+            "kind": "GroupingOrMeasure"
+        }        
     ],
-    "objects": {},
-    "dataViewMappings": [
-        {
-            "categorical": {
-                "categories": {
-                    "for": {
-                        "in": "index"
-                    },
-                    "dataReductionAlgorithm": {
-                        "top": {
-                            "count": 2000
-                        }
+    "objects": {
+        "dataPoint": {
+            "displayName": "MTA Settings",
+            "properties": {
+                
+                "projektStart": {
+                    "displayName": "View Period Start (dd.mm.yyyy)",
+                    "type": {
+                        "text": true
                     }
                 },
-                "values": {
-                    "select": [
-                        {
-                            "bind": {
-                                "to": "measure0"
+                "projektEnd": {
+                    "displayName": "View Period End (dd.mm.yyyy)",
+                    "type": {
+                        "text": true
+                    }
+                },               
+                "radius": {
+                   "displayName": "Label Size",
+                   "type": {
+                        "numeric": true
+                   }
+              
+                },
+                "thickness": {
+                    "displayName": "Line Thickness",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "tooltipReportDate": {
+                    "displayName": "Report Date in Tooltip",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "tooltipVorEnde": {
+                    "displayName": "Vorraus. Ende in Tooltip",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "tooltipFree": {
+                    "displayName": "Frei zu vergeben in Tooltip",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "labelTooltip1": {
+                    "displayName": "Label Report Date",
+                    "type": {
+                        "text": true
+                    }
+                },
+                "labelTooltip2": {
+                    "displayName": "Label Vor. Ende",
+                    "type": {
+                        "text": true
+                    }
+                },
+                "labelTooltip3": {
+                    "displayName": "Top Label Tooltip",
+                    "type": {
+                        "text": true
+                    }
+                },
+                "dataColor": {
+                    "displayName": "Data Color",
+                    "type": {
+                        "bool": true
+                    }
+                }
+            
+            }
+        },
+        "dateType":{
+            "displayName": "Date Type",
+            "properties": {
+                "type": {
+                    "displayName": "Type",
+                    "displayNameKey": "Visual_Type",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "value": "Month",
+                                "displayName": "Month",
+                                "displayNameKey": "Visual_DateType_Month"
+                            },
+                            {
+                                "value": "Quarter",
+                                "displayName": "Quarter",
+                                "displayNameKey": "Visual_DateType_Quarter"
+                            },
+                            {
+                                "value": "Year",
+                                "displayName": "Year",
+                                "displayNameKey": "Visual_DateType_Year"
                             }
-                        },
-                        {
-                            "bind": {
-                                "to": "measure1"
-                            }
-                        },
-                        {
-                            "bind": {
-                                "to": "measure2"
-                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "dataViewMappings": [        
+        {
+            "table": {
+                "rows": {
+                    "select": [{
+                        "for": {
+                            "in": "milestone"
                         }
+                    },
+                    {
+                        "for": {
+                            "in": "reportDate"
+                        }
+                    },
+                    {
+                        "for": {
+                            "in": "vorEnde"
+                        }
+                    },
+                    {
+                        "for": {
+                            "in": "tooltip"
+                        }
+                    },
+                    {
+                        "for": {
+                            "in": "calendar"
+                        }
+                    }
                     ]
                 }
             }
